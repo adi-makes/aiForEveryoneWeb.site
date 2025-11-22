@@ -1,13 +1,20 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from 'next-themes';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,6 +78,19 @@ export const Navbar = () => {
               <Globe className="h-4 w-4" />
               {language === 'en' ? 'മലയാളം' : 'English'}
             </Button>
+            {mounted && (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              >
+                {theme === 'dark' ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -118,6 +138,28 @@ export const Navbar = () => {
                 <Globe className="h-4 w-4" />
                 {language === 'en' ? 'മലയാളം' : 'English'}
               </Button>
+              {mounted && (
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setTheme(theme === 'dark' ? 'light' : 'dark');
+                    setIsOpen(false);
+                  }}
+                  className="gap-2 w-full"
+                >
+                  {theme === 'dark' ? (
+                    <>
+                      <Sun className="h-4 w-4" />
+                      Light Mode
+                    </>
+                  ) : (
+                    <>
+                      <Moon className="h-4 w-4" />
+                      Dark Mode
+                    </>
+                  )}
+                </Button>
+              )}
             </div>
           </motion.div>
         )}
