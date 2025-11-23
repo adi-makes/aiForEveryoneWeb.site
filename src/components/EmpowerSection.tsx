@@ -16,8 +16,26 @@ export const EmpowerSection = () => {
   ];
 
   return (
-    <section id="empower" className="py-20">
-      <div className="container mx-auto px-4">
+    <section id="empower" className="py-20 relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-kerala-orange/5 via-background to-kerala-green/5" />
+      <motion.div
+        className="absolute inset-0 opacity-15"
+        animate={{
+          backgroundPosition: ['0% 0%', '100% 100%'],
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          repeatType: 'reverse',
+        }}
+        style={{
+          backgroundImage: 'radial-gradient(circle at 10% 20%, hsl(var(--kerala-orange)) 0%, transparent 50%), radial-gradient(circle at 90% 80%, hsl(var(--kerala-green)) 0%, transparent 50%)',
+          backgroundSize: '100% 100%',
+        }}
+      />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,10 +57,19 @@ export const EmpowerSection = () => {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15, duration: 0.6 }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -80 : 80, rotateY: index % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ 
+                  delay: index * 0.15, 
+                  duration: 0.8,
+                  ease: [0.4, 0, 0.2, 1]
+                }}
+                whileHover={{ 
+                  scale: 1.03,
+                  y: -5,
+                  transition: { duration: 0.3 }
+                }}
               >
                 <Card className="p-8 gradient-card border-primary/20 hover:shadow-glow transition-all duration-300">
                   <div className="flex items-start gap-4">

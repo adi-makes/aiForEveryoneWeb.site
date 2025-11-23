@@ -12,6 +12,8 @@ import { ActivitiesSection } from '@/components/ActivitiesSection';
 import { BuildSection } from '@/components/BuildSection';
 import { Footer } from '@/components/Footer';
 import { BackToTop } from '@/components/BackToTop';
+import { ImageShowcase } from '@/components/ImageShowcase';
+import { MapSection } from '@/components/MapSection';
 
 const Index = () => {
   return (
@@ -21,8 +23,10 @@ const Index = () => {
           <Navbar />
           <Hero />
           <StorySection />
+          <ImageShowcase />
           <EmpowerSection />
           <TimelineSection />
+          <MapSection />
           <DemoSection />
           <TestimonialsSection />
           <ResponsibleSection />
