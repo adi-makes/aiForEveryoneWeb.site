@@ -11,11 +11,33 @@ export const TestimonialsSection = () => {
     { text: t('testimonials.farmer'), name: t('testimonials.farmerName') },
     { text: t('testimonials.teacher'), name: t('testimonials.teacherName') },
     { text: t('testimonials.senior'), name: t('testimonials.seniorName') },
+    { text: t('testimonials.entrepreneur'), name: t('testimonials.entrepreneurName') },
+    { text: t('testimonials.doctor'), name: t('testimonials.doctorName') },
+    { text: t('testimonials.fisherman'), name: t('testimonials.fishermanName') },
+    { text: t('testimonials.artist'), name: t('testimonials.artistName') },
   ];
 
   return (
-    <section id="testimonials" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="testimonials" className="py-20 relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-kerala-green/5 via-background to-kerala-teal/5" />
+      <motion.div
+        className="absolute inset-0 opacity-10"
+        animate={{
+          backgroundPosition: ['0% 0%', '100% 100%'],
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          repeatType: 'reverse',
+        }}
+        style={{
+          backgroundImage: 'radial-gradient(circle at 30% 20%, hsl(var(--kerala-green)) 0%, transparent 50%), radial-gradient(circle at 70% 60%, hsl(var(--kerala-orange)) 0%, transparent 50%)',
+          backgroundSize: '100% 100%',
+        }}
+      />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -31,7 +53,7 @@ export const TestimonialsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}

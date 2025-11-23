@@ -11,6 +11,7 @@ import { ResponsibleSection } from '@/components/ResponsibleSection';
 import { ActivitiesSection } from '@/components/ActivitiesSection';
 import { BuildSection } from '@/components/BuildSection';
 import { Footer } from '@/components/Footer';
+import { BackToTop } from '@/components/BackToTop';
 
 const Index = () => {
   return (
@@ -28,6 +29,7 @@ const Index = () => {
           <ActivitiesSection />
           <BuildSection />
           <Footer />
+          <BackToTop />
         </div>
       </LanguageProvider>
     </ThemeProvider>
