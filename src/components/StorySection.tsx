@@ -16,8 +16,26 @@ export const StorySection = () => {
   ];
 
   return (
-    <section id="story" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="story" className="py-20 relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-kerala-green/5 via-background to-kerala-blue/5" />
+      <motion.div
+        className="absolute inset-0 opacity-10"
+        animate={{
+          backgroundPosition: ['0% 0%', '100% 100%'],
+        }}
+        transition={{
+          duration: 30,
+          repeat: Infinity,
+          repeatType: 'reverse',
+        }}
+        style={{
+          backgroundImage: 'radial-gradient(circle at 20% 80%, hsl(var(--kerala-green)) 0%, transparent 50%), radial-gradient(circle at 80% 20%, hsl(var(--kerala-blue)) 0%, transparent 50%)',
+          backgroundSize: '100% 100%',
+        }}
+      />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,11 +57,19 @@ export const StorySection = () => {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                whileHover={{ y: -10, scale: 1.02 }}
+                initial={{ opacity: 0, y: 50, rotateX: -15 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ 
+                  delay: index * 0.1, 
+                  duration: 0.8,
+                  ease: [0.4, 0, 0.2, 1]
+                }}
+                whileHover={{ 
+                  y: -10, 
+                  scale: 1.02,
+                  transition: { duration: 0.3 }
+                }}
               >
                 <Card className="p-6 h-full gradient-card border-primary/20 hover:shadow-glow transition-all duration-300">
                   <div className="mb-4 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">

@@ -14,8 +14,26 @@ export const TimelineSection = () => {
   ];
 
   return (
-    <section id="journey" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="journey" className="py-20 relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-kerala-blue/5 via-background to-kerala-teal/5" />
+      <motion.div
+        className="absolute inset-0 opacity-10"
+        animate={{
+          backgroundPosition: ['0% 0%', '100% 100%'],
+        }}
+        transition={{
+          duration: 35,
+          repeat: Infinity,
+          repeatType: 'reverse',
+        }}
+        style={{
+          backgroundImage: 'radial-gradient(circle at 50% 0%, hsl(var(--kerala-blue)) 0%, transparent 50%), radial-gradient(circle at 50% 100%, hsl(var(--kerala-teal)) 0%, transparent 50%)',
+          backgroundSize: '100% 100%',
+        }}
+      />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,10 +57,26 @@ export const TimelineSection = () => {
             {phases.map((phase, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2, duration: 0.6 }}
+                initial={{ 
+                  opacity: 0, 
+                  x: index % 2 === 0 ? -100 : 100,
+                  scale: 0.8
+                }}
+                whileInView={{ 
+                  opacity: 1, 
+                  x: 0,
+                  scale: 1
+                }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ 
+                  delay: index * 0.2, 
+                  duration: 0.8,
+                  ease: [0.4, 0, 0.2, 1]
+                }}
+                whileHover={{
+                  scale: 1.02,
+                  transition: { duration: 0.3 }
+                }}
                 className={`flex items-center ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 } flex-col gap-8`}
