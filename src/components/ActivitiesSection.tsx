@@ -3,7 +3,9 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Image, BookText, FileText } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
-const icons = [Image, BookText, FileText];
+import { Mic, History, Home } from 'lucide-react';
+
+const icons = [Image, BookText, FileText, Mic, History, Home];
 
 export const ActivitiesSection = () => {
   const { language, t } = useLanguage();
@@ -24,11 +26,44 @@ export const ActivitiesSection = () => {
       desc: t('activities.project3Desc'),
       steps: [t('activities.project3Step1'), t('activities.project3Step2'), t('activities.project3Step3')],
     },
+    {
+      title: t('activities.project4'),
+      desc: t('activities.project4Desc'),
+      steps: [t('activities.project4Step1'), t('activities.project4Step2'), t('activities.project4Step3')],
+    },
+    {
+      title: t('activities.project5'),
+      desc: t('activities.project5Desc'),
+      steps: [t('activities.project5Step1'), t('activities.project5Step2'), t('activities.project5Step3')],
+    },
+    {
+      title: t('activities.project6'),
+      desc: t('activities.project6Desc'),
+      steps: [t('activities.project6Step1'), t('activities.project6Step2'), t('activities.project6Step3')],
+    },
   ];
 
   return (
-    <section id="activities" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="activities" className="py-20 relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-kerala-blue/5 via-background to-kerala-orange/5" />
+      <motion.div
+        className="absolute inset-0 opacity-10"
+        animate={{
+          backgroundPosition: ['0% 0%', '100% 100%'],
+        }}
+        transition={{
+          duration: 30,
+          repeat: Infinity,
+          repeatType: 'reverse',
+        }}
+        style={{
+          backgroundImage: 'radial-gradient(circle at 40% 40%, hsl(var(--kerala-blue)) 0%, transparent 50%), radial-gradient(circle at 80% 20%, hsl(var(--kerala-teal)) 0%, transparent 50%)',
+          backgroundSize: '100% 100%',
+        }}
+      />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +79,7 @@ export const ActivitiesSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => {
             const Icon = icons[index];
             return (

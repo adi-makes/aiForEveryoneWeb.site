@@ -100,6 +100,12 @@ All colors MUST be HSL.
 
   html {
     scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
   }
 
   .malayalam-text {

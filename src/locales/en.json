@@ -75,7 +75,15 @@
     "teacher": "Teaching with AI tools has made my classroom more engaging. Every child gets individual attention.",
     "teacherName": "Suma, Teacher",
     "senior": "Voice commands help me stay connected with my grandchildren. Age is just a number now!",
-    "seniorName": "Gopalan, Retired"
+    "seniorName": "Gopalan, Retired",
+    "entrepreneur": "AI helped me understand market trends and grow my business online. Now I reach customers worldwide!",
+    "entrepreneurName": "Maya, Entrepreneur",
+    "doctor": "AI assists in diagnostics and patient care. We can now serve more people in rural areas effectively.",
+    "doctorName": "Dr. Krishnan, Physician",
+    "fisherman": "AI weather forecasts help us plan our fishing trips safely. It's revolutionized our traditional work.",
+    "fishermanName": "Suresh, Fisherman",
+    "artist": "AI tools help me design and market my artwork globally. Traditional art meets modern technology!",
+    "artistName": "Lakshmi, Artist"
   },
   "responsible": {
     "title": "Responsible AI for Kerala",
@@ -106,7 +114,22 @@
     "project3Desc": "Learn how AI can process and explain information",
     "project3Step1": "Find a Malayalam news article online",
     "project3Step2": "Ask AI to summarize key points",
-    "project3Step3": "Compare AI summary with your understanding"
+    "project3Step3": "Compare AI summary with your understanding",
+    "project4": "Voice Chat with AI",
+    "project4Desc": "Practice conversation with an AI assistant",
+    "project4Step1": "Choose a topic: farming, cooking, or culture",
+    "project4Step2": "Use voice commands to ask questions",
+    "project4Step3": "Learn from the AI's responses",
+    "project5": "Translate Family Stories",
+    "project5Desc": "Use AI to preserve and translate family histories",
+    "project5Step1": "Record a story from your elders",
+    "project5Step2": "Use AI to transcribe and translate",
+    "project5Step3": "Create a digital archive",
+    "project6": "Smart Home Assistant",
+    "project6Desc": "Set up basic AI automation at home",
+    "project6Step1": "Choose a simple task to automate",
+    "project6Step2": "Configure voice commands or schedules",
+    "project6Step3": "Test and refine your setup"
   },
   "build": {
     "title": "How AI Helped Build This Website",
