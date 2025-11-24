@@ -13,6 +13,7 @@ import { BuildSection } from '@/components/BuildSection';
 import { Footer } from '@/components/Footer';
 import { BackToTop } from '@/components/BackToTop';
 import { ImageShowcase } from '@/components/ImageShowcase';
+import { GallerySection } from '@/components/GallerySection';
 
 
 const Index = () => {
@@ -24,6 +25,7 @@ const Index = () => {
           <Hero />
           <StorySection />
           <ImageShowcase />
+          <GallerySection />
           <EmpowerSection />
           <TimelineSection />
           <DemoSection />

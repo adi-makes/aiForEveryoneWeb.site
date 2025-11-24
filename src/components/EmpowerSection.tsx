@@ -1,18 +1,56 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { GraduationCap, Tractor, Palette, Users2 } from 'lucide-react';
+import { DetailDialog } from '@/components/DetailDialog';
 import { Card } from '@/components/ui/card';
 
 const icons = [GraduationCap, Tractor, Palette, Users2];
 
 export const EmpowerSection = () => {
   const { language, t } = useLanguage();
+  const [selectedPerson, setSelectedPerson] = useState<number | null>(null);
 
   const people = [
-    { title: t('empower.student'), desc: t('empower.studentDesc') },
-    { title: t('empower.farmer'), desc: t('empower.farmerDesc') },
-    { title: t('empower.artisan'), desc: t('empower.artisanDesc') },
-    { title: t('empower.senior'), desc: t('empower.seniorDesc') },
+    { 
+      title: t('empower.student'), 
+      desc: t('empower.studentDesc'),
+      details: language === 'en' ? [
+        'AI-powered personalized learning paths',
+        'Virtual tutors available 24/7',
+        'Smart career guidance based on skills',
+        'Interactive coding platforms',
+        'Language learning with AI feedback'
+      ] : ['AI-പവർഡ് വ്യക്തിഗത പഠന പാതകൾ', 'വെർച്വൽ ട്യൂട്ടർമാർ 24/7', 'കഴിവുകൾ അടിസ്ഥാനമാക്കിയുള്ള കരിയർ ഗൈഡൻസ്']
+    },
+    { 
+      title: t('empower.farmer'), 
+      desc: t('empower.farmerDesc'),
+      details: language === 'en' ? [
+        'Crop disease detection using AI',
+        'Weather-based farming recommendations',
+        'Market price predictions',
+        'Soil health monitoring'
+      ] : ['AI ഉപയോഗിച്ച് വിള രോഗ കണ്ടെത്തൽ', 'കാലാവസ്ഥാ അടിസ്ഥാനത്തിലുള്ള കൃഷി ശുപാർശകൾ']
+    },
+    { 
+      title: t('empower.artisan'), 
+      desc: t('empower.artisanDesc'),
+      details: language === 'en' ? [
+        'AI design tools for traditional crafts',
+        'Online marketplace connectivity',
+        'Quality control automation'
+      ] : ['പരമ്പരാഗത കരകൗശലത്തിനായി AI ഡിസൈൻ ഉപകരണങ്ങൾ']
+    },
+    { 
+      title: t('empower.senior'), 
+      desc: t('empower.seniorDesc'),
+      details: language === 'en' ? [
+        'Voice-activated assistants',
+        'Health monitoring systems',
+        'Easy video calling with family'
+      ] : ['വോയ്സ്-ആക്ടിവേറ്റഡ് അസിസ്റ്റന്റുകൾ', 'ആരോഗ്യ നിരീക്ഷണ സംവിധാനങ്ങൾ']
+    },
   ];
 
   return (
@@ -70,8 +108,11 @@ export const EmpowerSection = () => {
                   y: -5,
                   transition: { duration: 0.3 }
                 }}
-              >
-                <Card className="p-8 gradient-card border-primary/20 hover:shadow-glow transition-all duration-300">
+               >
+                 <Card 
+                   className="p-8 gradient-card border-primary/20 hover:shadow-glow transition-all duration-300 cursor-pointer"
+                   onClick={() => setSelectedPerson(index)}
+                 >
                   <div className="flex items-start gap-4">
                     <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-kerala-green flex items-center justify-center flex-shrink-0">
                       <Icon className="w-8 h-8 text-white" />
@@ -91,6 +132,16 @@ export const EmpowerSection = () => {
           })}
         </div>
       </div>
+
+      {selectedPerson !== null && (
+        <DetailDialog
+          open={selectedPerson !== null}
+          onOpenChange={() => setSelectedPerson(null)}
+          title={people[selectedPerson].title}
+          description={people[selectedPerson].desc}
+          details={people[selectedPerson].details}
+        />
+      )}
     </section>
   );
 };
