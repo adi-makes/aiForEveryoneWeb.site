@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { ChevronDown, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-import heroImage from '@/assets/hero-kerala.jpg';
+import heroImage from '@/assets/hero-kerala-clean.jpg';
 
 export const Hero = () => {
   const { language, t } = useLanguage();

@@ -1,18 +1,42 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Shield, Scale, Eye, Heart } from 'lucide-react';
+import { Card } from '@/components/ui/card';
+import { DetailDialog } from '@/components/DetailDialog';
 import { Card } from '@/components/ui/card';
 
 const icons = [Shield, Scale, Eye, Heart];
 
 export const ResponsibleSection = () => {
   const { language, t } = useLanguage();
+  const [selectedPrinciple, setSelectedPrinciple] = useState<number | null>(null);
 
   const principles = [
-    { title: t('responsible.privacy'), desc: t('responsible.privacyDesc') },
-    { title: t('responsible.fairness'), desc: t('responsible.fairnessDesc') },
-    { title: t('responsible.transparency'), desc: t('responsible.transparencyDesc') },
-    { title: t('responsible.safety'), desc: t('responsible.safetyDesc') },
+    { 
+      title: t('responsible.privacy'), 
+      desc: t('responsible.privacyDesc'),
+      details: language === 'en' ? ['Data encryption', 'User consent required', 'No unauthorized data sharing', 'Regular security audits'] : ['ഡാറ്റ എൻക്രിപ്ഷൻ', 'ഉപയോക്താവിന്റെ സമ്മതം ആവശ്യം'],
+      videoUrl: 'https://www.youtube.com/embed/Phpq5C2fQmA'
+    },
+    { 
+      title: t('responsible.fairness'), 
+      desc: t('responsible.fairnessDesc'),
+      details: language === 'en' ? ['Bias detection in AI', 'Equal access for all', 'Fair algorithms'] : ['AI-യിൽ പക്ഷപാതം കണ്ടെത്തൽ', 'എല്ലാവർക്കും തുല്യ പ്രവേശനം'],
+      videoUrl: 'https://www.youtube.com/embed/59bMh59JQDo'
+    },
+    { 
+      title: t('responsible.transparency'), 
+      desc: t('responsible.transparencyDesc'),
+      details: language === 'en' ? ['Explainable AI decisions', 'Open documentation', 'Clear usage terms'] : ['വിശദീകരിക്കാവുന്ന AI തീരുമാനങ്ങൾ'],
+      videoUrl: 'https://www.youtube.com/embed/kIiO4VSrivU'
+    },
+    { 
+      title: t('responsible.safety'), 
+      desc: t('responsible.safetyDesc'),
+      details: language === 'en' ? ['Harm prevention', 'Content moderation', 'User protection'] : ['ദോഷം തടയൽ', 'ഉള്ളടക്ക മോഡറേഷൻ'],
+      videoUrl: 'https://www.youtube.com/embed/AaAonthni7Y'
+    },
   ];
 
   return (
@@ -79,7 +103,7 @@ export const ResponsibleSection = () => {
                   transition: { duration: 0.3 }
                 }}
               >
-                <Card className="p-6 h-full gradient-card border-primary/20 hover:shadow-glow transition-all duration-300 text-center">
+                <Card className="p-6 h-full gradient-card border-primary/20 hover:shadow-glow transition-all duration-300 text-center cursor-pointer" onClick={() => setSelectedPrinciple(index)}>
                   <div className="mb-4 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-kerala-blue flex items-center justify-center mx-auto">
                     <Icon className="w-8 h-8 text-white" />
                   </div>
@@ -95,6 +119,17 @@ export const ResponsibleSection = () => {
           })}
         </div>
       </div>
+
+      {selectedPrinciple !== null && (
+        <DetailDialog
+          open={selectedPrinciple !== null}
+          onOpenChange={() => setSelectedPrinciple(null)}
+          title={principles[selectedPrinciple].title}
+          description={principles[selectedPrinciple].desc}
+          details={principles[selectedPrinciple].details}
+          videoUrl={principles[selectedPrinciple].videoUrl}
+        />
+      )}
     </section>
   );
 };

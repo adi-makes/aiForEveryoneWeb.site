@@ -15,6 +15,11 @@ export const Footer = () => {
           <p className={`text-sm text-muted-foreground ${language === 'ml' ? 'malayalam-text' : ''}`}>
             {t('footer.copyright')}
           </p>
+          <p className="text-xs text-muted-foreground mt-2 flex items-center justify-center gap-2">
+            <span className="text-primary">❮ /❯</span>
+            {language === 'en' ? 'Crafted with passion by' : 'സ്നേഹത്തോടെ നിർമ്മിച്ചത്'}
+            <span className="font-semibold text-foreground">Adith R. Lal</span>
+          </p>
         </div>
       </div>
     </footer>
