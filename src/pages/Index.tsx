@@ -13,7 +13,7 @@ import { BuildSection } from '@/components/BuildSection';
 import { Footer } from '@/components/Footer';
 import { BackToTop } from '@/components/BackToTop';
 import { ImageShowcase } from '@/components/ImageShowcase';
-import { MapSection } from '@/components/MapSection';
+
 
 const Index = () => {
   return (
@@ -26,7 +26,6 @@ const Index = () => {
           <ImageShowcase />
           <EmpowerSection />
           <TimelineSection />
-          <MapSection />
           <DemoSection />
           <TestimonialsSection />
           <ResponsibleSection />
