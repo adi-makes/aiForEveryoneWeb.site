@@ -4,7 +4,6 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Shield, Scale, Eye, Heart } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { DetailDialog } from '@/components/DetailDialog';
-import { Card } from '@/components/ui/card';
 
 const icons = [Shield, Scale, Eye, Heart];
 
