@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { GraduationCap, Tractor, Palette, Users2 } from 'lucide-react';
+import { GraduationCap, Tractor, Palette, Users2, ArrowRight } from 'lucide-react';
 import { DetailDialog } from '@/components/DetailDialog';
 import { Card } from '@/components/ui/card';
 
@@ -110,20 +110,26 @@ export const EmpowerSection = () => {
                 }}
                >
                  <Card 
-                   className="p-8 gradient-card border-primary/20 hover:shadow-glow transition-all duration-300 cursor-pointer"
+                   className="p-8 h-full bg-gradient-to-br from-card via-card to-primary/5 border-2 border-primary/20 hover:border-primary/40 hover:shadow-glow transition-all duration-500 cursor-pointer relative overflow-hidden group"
                    onClick={() => setSelectedPerson(index)}
                  >
-                  <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-kerala-green flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-8 h-8 text-white" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-kerala-teal/5 via-transparent to-kerala-orange/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="relative flex items-start gap-6">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary via-kerala-blue to-kerala-green flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
+                      <Icon className="w-10 h-10 text-white" />
                     </div>
-                    <div>
-                      <h3 className={`text-2xl font-bold mb-3 ${language === 'ml' ? 'malayalam-text' : ''}`}>
+                    <div className="flex-1">
+                      <h3 className={`text-2xl font-bold mb-3 bg-gradient-to-r from-primary to-kerala-blue bg-clip-text text-transparent ${language === 'ml' ? 'malayalam-text' : ''}`}>
                         {person.title}
                       </h3>
-                      <p className={`text-muted-foreground ${language === 'ml' ? 'malayalam-text' : ''}`}>
+                      <p className={`text-muted-foreground leading-relaxed mb-4 ${language === 'ml' ? 'malayalam-text' : ''}`}>
                         {person.desc}
                       </p>
+                      <div className="flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all duration-300">
+                        <span>{language === 'en' ? 'Discover how' : 'എങ്ങനെയെന്ന് അറിയുക'}</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                      </div>
                     </div>
                   </div>
                 </Card>

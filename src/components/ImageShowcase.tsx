@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { DetailDialog } from '@/components/DetailDialog';
+import { Sparkles, ArrowRight } from 'lucide-react';
 import farmerImage from '@/assets/kerala-farmer-ai.jpg';
 import cultureImage from '@/assets/kerala-culture-ai.jpg';
 import techHubImage from '@/assets/kerala-tech-hub.jpg';
@@ -39,8 +40,7 @@ export const ImageShowcase = () => {
         'രാസവസ്തുക്കളുടെ ഉപയോഗം കുറയ്ക്കാൻ AI-നയിക്കുന്ന കീടനിയന്ത്രണ ശുപാർശകൾ',
         'വിളവെടുപ്പും ലോജിസ്റ്റിക്സും നന്നായി ആസൂത്രണം ചെയ്യാനുള്ള വിളവ് പ്രവചന മോഡലുകൾ'
       ],
-      images: [aiAgriculture1, aiAgriculture2],
-      videoUrl: 'https://www.youtube.com/embed/hVimVzgtD6w'
+      images: [aiAgriculture1, aiAgriculture2]
     },
     {
       src: cultureImage,
@@ -63,8 +63,7 @@ export const ImageShowcase = () => {
         'കേരളത്തിന്റെ സമ്പന്നമായ സാംസ്കാരിക പൈതൃകം പ്രദർശിപ്പിക്കുന്ന ഡിജിറ്റൽ മ്യൂസിയങ്ങൾ',
         'പരമ്പരാഗത കലകളെ ആധുനിക സാങ്കേതികവിദ്യയുമായി സംയോജിപ്പിക്കുന്ന AI-മെച്ചപ്പെടുത്തിയ പ്രകടനങ്ങൾ'
       ],
-      images: [aiCulture1, aiCulture2],
-      videoUrl: 'https://www.youtube.com/embed/Unzc731iCUY'
+      images: [aiCulture1, aiCulture2]
     },
     {
       src: techHubImage,
@@ -87,8 +86,7 @@ export const ImageShowcase = () => {
         'ആഗോള AI വൈദഗ്ദ്ധ്യം കേരളത്തിലേക്ക് കൊണ്ടുവരുന്ന അന്താരാഷ്ട്ര പങ്കാളിത്തങ്ങൾ',
         'പ്രാദേശികവും ആഗോളവുമായ വെല്ലുവിളികൾക്കുള്ള AI പരിഹാരങ്ങളിൽ ശ്രദ്ധ കേന്ദ്രീകരിക്കുക'
       ],
-      images: [aiTech],
-      videoUrl: 'https://www.youtube.com/embed/ukzFI9rgwfU'
+      images: [aiTech]
     },
     {
       src: aiHealthcare,
@@ -111,8 +109,7 @@ export const ImageShowcase = () => {
         'AI-സഹായിത ശസ്ത്രക്രിയയും ചികിത്സാ ആസൂത്രണവും',
         'വയോജന സംരക്ഷണത്തിനായി വ്യക്തിഗത ആരോഗ്യ സഹായികൾ'
       ],
-      images: [aiHealthcare],
-      videoUrl: 'https://www.youtube.com/embed/qRgj5PuPOv8'
+      images: [aiHealthcare]
     },
     {
       src: aiEducation,
@@ -135,8 +132,7 @@ export const ImageShowcase = () => {
         'AI-പവർഡ് ഉച്ചാരണ തിരുത്തലോടെയുള്ള ഭാഷാ പഠന ആപ്പുകൾ',
         'പ്രത്യേക ആവശ്യങ്ങളുള്ള വിദ്യാർത്ഥികൾക്കുള്ള പ്രവേശനക്ഷമത ഉപകരണങ്ങൾ'
       ],
-      images: [aiEducation],
-      videoUrl: 'https://www.youtube.com/embed/hE4OG4_KCPg'
+      images: [aiEducation]
     },
   ];
 
@@ -195,41 +191,45 @@ export const ImageShowcase = () => {
                 transition: { duration: 0.3 }
               }}
               onClick={() => setSelectedItem(index)}
-              className="group relative overflow-hidden rounded-2xl shadow-2xl cursor-pointer"
+              className="group relative overflow-hidden rounded-2xl shadow-2xl cursor-pointer bg-gradient-to-br from-card via-card to-primary/5 border-2 border-primary/20 hover:border-primary/40"
             >
+              <div className="absolute inset-0 bg-gradient-to-br from-kerala-teal/5 via-transparent to-kerala-orange/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
               <div className="relative aspect-[4/3] overflow-hidden">
                 <motion.img
                   src={image.src}
                   alt={image.title}
                   className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
+                  whileHover={{ scale: 1.15 }}
+                  transition={{ duration: 0.7 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent" />
                 
-                <motion.div
-                  className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
-                >
-                  <h3 className={`text-xl font-bold text-white mb-2 ${language === 'ml' ? 'malayalam-text' : ''}`}>
+                <div className="absolute top-4 right-4 p-2.5 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 group-hover:scale-110 transition-all duration-300 shadow-lg">
+                  <Sparkles className="w-5 h-5 text-primary" />
+                </div>
+                
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className={`text-2xl font-bold text-white mb-2 drop-shadow-lg ${language === 'ml' ? 'malayalam-text' : ''}`}>
                     {image.title}
                   </h3>
-                  <p className={`text-sm text-white/90 mb-2 ${language === 'ml' ? 'malayalam-text' : ''}`}>
+                  <p className={`text-sm text-white/90 mb-3 line-clamp-2 ${language === 'ml' ? 'malayalam-text' : ''}`}>
                     {image.desc}
                   </p>
-                  <p className="text-xs text-primary-foreground/80 font-semibold">
-                    {language === 'en' ? 'Click for more →' : 'കൂടുതൽ അറിയാൻ ക്ലിക്ക് ചെയ്യുക →'}
-                  </p>
-                </motion.div>
+                  <div className="flex items-center gap-2 text-primary text-sm font-semibold group-hover:gap-3 transition-all duration-300">
+                    <span>{language === 'en' ? 'Explore more' : 'കൂടുതൽ പര്യവേക്ഷണം'}</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  </div>
+                </div>
               </div>
 
-              {/* Animated border effect */}
+              {/* Animated border glow */}
               <motion.div
-                className="absolute inset-0 border-2 border-primary rounded-2xl opacity-0 group-hover:opacity-100"
-                initial={false}
+                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 pointer-events-none"
                 animate={{
                   boxShadow: [
                     '0 0 0 0 rgba(var(--primary), 0)',
-                    '0 0 20px 5px rgba(var(--primary), 0.3)',
+                    '0 0 30px 8px hsl(var(--primary) / 0.4)',
                     '0 0 0 0 rgba(var(--primary), 0)',
                   ],
                 }}
@@ -251,7 +251,6 @@ export const ImageShowcase = () => {
           description={images[selectedItem].desc}
           details={images[selectedItem].details}
           images={images[selectedItem].images}
-          videoUrl={images[selectedItem].videoUrl}
         />
       )}
     </section>
