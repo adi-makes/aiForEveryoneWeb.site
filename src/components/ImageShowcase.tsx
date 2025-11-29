@@ -174,7 +174,7 @@ export const ImageShowcase = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {images.map((image, index) => (
             <motion.div
               key={index}
@@ -191,7 +191,7 @@ export const ImageShowcase = () => {
                 transition: { duration: 0.3 }
               }}
               onClick={() => setSelectedItem(index)}
-              className="group relative overflow-hidden rounded-2xl shadow-2xl cursor-pointer bg-gradient-to-br from-card via-card to-primary/5 border-2 border-primary/20 hover:border-primary/40"
+              className="group relative overflow-hidden rounded-2xl shadow-2xl cursor-pointer bg-gradient-to-br from-card via-card to-primary/5 border-2 border-primary/20 hover:border-primary/40 mx-auto w-full"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-kerala-teal/5 via-transparent to-kerala-orange/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
