@@ -70,7 +70,7 @@ export const ResponsibleSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {principles.map((principle, index) => {
             const Icon = icons[index];
             return (
@@ -93,9 +93,9 @@ export const ResponsibleSection = () => {
                   ease: [0.4, 0, 0.2, 1]
                 }}
                 whileHover={{ 
-                  y: -10,
+                  y: -12,
                   scale: 1.03,
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3, ease: "easeOut" }
                 }}
               >
                 <Card className="p-8 h-full bg-gradient-to-br from-card via-card to-primary/5 border-2 border-primary/20 hover:border-primary/40 hover:shadow-glow transition-all duration-500 text-center cursor-pointer relative overflow-hidden group" onClick={() => setSelectedPrinciple(index)}>

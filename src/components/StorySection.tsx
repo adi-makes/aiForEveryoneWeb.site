@@ -51,7 +51,7 @@ export const StorySection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {cards.map((card, index) => {
             const Icon = icons[index];
             return (
@@ -66,15 +66,19 @@ export const StorySection = () => {
                   ease: [0.4, 0, 0.2, 1]
                 }}
                 whileHover={{ 
-                  y: -10, 
-                  scale: 1.02,
-                  transition: { duration: 0.3 }
+                  y: -12, 
+                  scale: 1.03,
+                  transition: { duration: 0.3, ease: "easeOut" }
                 }}
               >
-                <Card className="p-6 h-full gradient-card border-primary/20 hover:shadow-glow transition-all duration-300">
-                  <div className="mb-4 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-primary" />
-                  </div>
+                <Card className="p-8 h-full gradient-card border-2 border-primary/20 hover:border-primary/40 hover:shadow-glow transition-all duration-300">
+                  <motion.div 
+                    className="mb-4 w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Icon className="w-7 h-7 text-primary" />
+                  </motion.div>
                   <h3 className={`text-xl font-bold mb-2 ${language === 'ml' ? 'malayalam-text' : ''}`}>
                     {card.title}
                   </h3>

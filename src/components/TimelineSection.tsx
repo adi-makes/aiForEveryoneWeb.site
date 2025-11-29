@@ -53,7 +53,7 @@ export const TimelineSection = () => {
           {/* Timeline line */}
           <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-kerala-blue to-kerala-green" />
 
-          <div className="space-y-12">
+          <div className="space-y-16 max-w-6xl mx-auto">
             {phases.map((phase, index) => (
               <motion.div
                 key={index}
@@ -74,15 +74,16 @@ export const TimelineSection = () => {
                   ease: [0.4, 0, 0.2, 1]
                 }}
                 whileHover={{
-                  scale: 1.02,
-                  transition: { duration: 0.3 }
+                  scale: 1.03,
+                  y: -8,
+                  transition: { duration: 0.3, ease: "easeOut" }
                 }}
                 className={`flex items-center ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 } flex-col gap-8`}
               >
                 <div className="md:w-1/2">
-                  <Card className="p-6 gradient-card border-primary/20 hover:shadow-glow transition-all duration-300">
+                  <Card className="p-8 gradient-card border-2 border-primary/20 hover:border-primary/40 hover:shadow-glow transition-all duration-300">
                     <h3 className={`text-2xl font-bold mb-3 text-primary ${language === 'ml' ? 'malayalam-text' : ''}`}>
                       {phase.title}
                     </h3>
