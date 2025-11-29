@@ -89,7 +89,7 @@ export const EmpowerSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
           {people.map((person, index) => {
             const Icon = icons[index];
             return (
@@ -105,8 +105,8 @@ export const EmpowerSection = () => {
                 }}
                 whileHover={{ 
                   scale: 1.03,
-                  y: -5,
-                  transition: { duration: 0.3 }
+                  y: -12,
+                  transition: { duration: 0.3, ease: "easeOut" }
                 }}
                >
                  <Card 

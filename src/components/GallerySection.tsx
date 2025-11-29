@@ -86,7 +86,7 @@ export const GallerySection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {images.map((image, index) => (
             <motion.div
               key={index}
@@ -97,8 +97,12 @@ export const GallerySection = () => {
                 duration: 0.5,
                 delay: index * 0.05,
               }}
-              whileHover={{ scale: 1.05 }}
-              className="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer aspect-square"
+              whileHover={{ 
+                scale: 1.08, 
+                y: -8,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
+              className="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer aspect-square border-2 border-primary/10 hover:border-primary/30 transition-all duration-300"
             >
               <img
                 src={image.src}
